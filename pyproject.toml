@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "willitrain"
+version = "0.1.0"
+description = ""
+authors = ["Khurshid Fayzullaev <khurshidfayzullaev@yahoo.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+requests = "^2.22"
+pylint = "^2.3"
+isort = "^4.3"
+mypy = "^0.720.0"
+yapf = "^0.28.0"
+nexmo = "^2.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

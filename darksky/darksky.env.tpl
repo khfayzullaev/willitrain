@@ -1,0 +1,1 @@
+export DARKSKY_SECRET_KEY='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxa'
