@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-A helper module for Twilio
+A helper module for Nexmo
 """
 
 import getopt
