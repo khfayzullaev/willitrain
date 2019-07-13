@@ -42,3 +42,9 @@ It’s important to keep credentials such as your Dark Sky API Secret Key  by st
 source ./darksky/darksky.env
 source ./sms/nexmo.env
 ```
+
+#### Run the tool
+
+```bash
+$ python forecast.py --lat 40.730610 --lon -73.935242 --to <your phone number> --from <nexmo virtual phone number>
+```
