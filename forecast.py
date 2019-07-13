@@ -27,7 +27,7 @@ def main(argv: List[str]) -> None:
                                 ["lat=", "lon=", "to=", "from=", "text="])
     except getopt.GetoptError:
         print(
-            'sms.py --lat <latitude> --lon <longitude> --to <phone> --from <phone>'
+            'forecast.py --lat <latitude> --lon <longitude> --to <phone> --from <phone>'
         )
         sys.exit(2)
     for opt, arg in opts:
@@ -35,7 +35,7 @@ def main(argv: List[str]) -> None:
         if opt == '-h':
             # pylint: disable-msg=C0103
             print(
-                'sms.py --lat <latitude> --lon <longitude> --to <phone> --from <phone>'
+                'forecast.py --lat <latitude> --lon <longitude> --to <phone> --from <phone>'
             )
             sys.exit()
         elif opt == '--lat':
@@ -49,7 +49,7 @@ def main(argv: List[str]) -> None:
 
     if lat == '' or lon == '' or to == '' or from_ == '':
         print(
-            'sms.py --lat <latitude> --lon <longitude> --to <phone> --from <phone>'
+            'forecast.py --lat <latitude> --lon <longitude> --to <phone> --from <phone>'
         )
         sys.exit(2)
 
