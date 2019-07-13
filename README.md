@@ -3,7 +3,7 @@
 An over engineered tool to deliver the weather notifications and alerts to your phone.
 
 ## Getting Started
-
+s
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
@@ -22,7 +22,7 @@ Poetry will detect if you are inside a virtualenv ( it will create a new virtual
 
 ```bash
 $ poetry config settings.virtualenvs.create true
-$ poetry cofig settings.virtualenvs.in-project true
+$ poetry config settings.virtualenvs.in-project true
 $ poetry install
 ```
 
