@@ -13,7 +13,7 @@ from typing import Dict, List
 import requests
 
 
-def generate_darksky_api_url(latitude: float, longitude: float) -> str:
+def generate_darksky_api_url(latitude: str, longitude: str) -> str:
     """
     Return url for Dark Sky API
     """
@@ -22,7 +22,7 @@ def generate_darksky_api_url(latitude: float, longitude: float) -> str:
     return "/".join(["https://api.darksky.net/forecast", secret_key, location])
 
 
-def get_hourly_forecast(latitude: float, longitude: float) -> str:
+def get_hourly_forecast(latitude: str, longitude: str) -> str:
     """
     Returns an hour-by-hour forecast for the next 48 hours
     """
@@ -60,7 +60,7 @@ def main(argv: List[str]) -> None:
         print("darksky.py --lat <latitude> --lon <longitude>")
         sys.exit(2)
 
-    print(get_hourly_forecast(float(latitude), float(longitude)))
+    print(get_hourly_forecast(latitude, longitude))
 
 
 if __name__ == "__main__":

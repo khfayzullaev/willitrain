@@ -7,14 +7,16 @@ authors = ["Khurshid Fayzullaev <khurshidfayzullaev@yahoo.com>"]
 [tool.poetry.dependencies]
 python = "^3.6"
 requests = "^2.22"
-pylint = "^2.3"
-isort = "^4.3"
-mypy = "^0.720.0"
-yapf = "^0.28.0"
 nexmo = "^2.4"
 
 [tool.poetry.dev-dependencies]
 black = "=19.3b0"
+pylint = "^2.3"
+isort = "^4.3"
+mypy = "^0.720.0"
+pytest = "^5.0"
+mock = "^3.0"
+pytest-cov = "^2.7"
 
 [build-system]
 requires = ["poetry>=0.12"]

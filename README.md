@@ -16,6 +16,13 @@ What things you need to run the tool:
 
 ### Installing
 
+
+#### Install git hooks
+
+```bash
+ln -s ../../pre-commit.sh .git/hooks/pre-commit
+```
+
 #### Install Python dependencies
 
 Poetry will detect if you are inside a virtualenv ( it will create a new virtualenv if one doesn't already exist)  and install the packages accordingly. Poetry uses `pyproject.toml` to replace `setup.py`, `requirements.txt`, `setup.cfg`, `MANIFEST.in` and `Pipfile`.
@@ -47,4 +54,12 @@ source ./sms/nexmo.env
 
 ```bash
 $ python forecast.py --lat 40.730610 --lon -73.935242 --to <your phone number> --from <nexmo virtual phone number>
+```
+
+### Testing
+
+To test the code, run:
+
+```bash
+$ ./run_test.sh
 ```

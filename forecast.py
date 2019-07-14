@@ -4,6 +4,7 @@
 Main file to get weather forecast and send sms
 """
 
+
 import getopt
 import json
 import sys
