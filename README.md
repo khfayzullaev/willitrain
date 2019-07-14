@@ -3,7 +3,7 @@
 An over engineered tool to deliver the weather notifications and alerts to your phone.
 
 ## Getting Started
-s
+
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
