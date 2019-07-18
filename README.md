@@ -21,6 +21,7 @@ What things you need to run the tool:
 
 ```bash
 ln -s ../../pre-commit.sh .git/hooks/pre-commit
+ln -s ../../post-merge.sh .git/hooks/post-merge
 ```
 
 #### Install Python dependencies
