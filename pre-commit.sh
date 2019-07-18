@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
-git stash -q --keep-index
 
-./run_format.sh
-./run_tests.sh
+./run_format_check.sh
 rc=$?
-
-git stash pop -q
 if [[ $rc != 0 ]]
 then
- exit 1
+     exit 1
+fi
+
+./run_tests.sh
+rc=$?
+if [[ $rc != 0 ]]
+then
+    exit 1
 fi
 
 exit 0
