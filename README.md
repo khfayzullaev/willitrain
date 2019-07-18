@@ -54,7 +54,7 @@ source ./sms/nexmo.env
 #### Run the tool
 
 ```bash
-$ python forecast.py --lat 40.730610 --lon -73.935242 --to <your phone number> --from <nexmo virtual phone number>
+$ python forecast.py --lat 40.730610 --lon -73.935242 --to <your phone number>
 ```
 
 ### Testing
