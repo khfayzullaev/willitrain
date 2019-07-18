@@ -22,21 +22,16 @@ def main(argv: List[str]) -> None:
     lat = ""
     lon = ""
     to = ""
-    from_ = ""
     try:
-        opts, _ = getopt.getopt(argv, "h", ["lat=", "lon=", "to=", "from=", "text="])
+        opts, _ = getopt.getopt(argv, "h", ["lat=", "lon=", "to=", "text="])
     except getopt.GetoptError:
-        print(
-            "forecast.py --lat <latitude> --lon <longitude> --to <phone> --from <phone>"
-        )
+        print("forecast.py --lat <latitude> --lon <longitude> --to <phone>")
         sys.exit(2)
     for opt, arg in opts:
         # pylint: disable-msg=C0103
         if opt == "-h":
             # pylint: disable-msg=C0103
-            print(
-                "forecast.py --lat <latitude> --lon <longitude> --to <phone> --from <phone>"
-            )
+            print("forecast.py --lat <latitude> --lon <longitude> --to <phone>")
             sys.exit()
         elif opt == "--lat":
             lat = arg
@@ -44,21 +39,13 @@ def main(argv: List[str]) -> None:
             lon = arg
         elif opt == "--to":
             to = arg
-        elif opt == "--from":
-            from_ = arg
 
-    if lat == "" or lon == "" or to == "" or from_ == "":
-        print(
-            "forecast.py --lat <latitude> --lon <longitude> --to <phone> --from <phone>"
-        )
+    if lat == "" or lon == "" or to == "":
+        print("forecast.py --lat <latitude> --lon <longitude> --to <phone>")
         sys.exit(2)
 
-    forecast = json.loads(darksky.get_hourly_forecast(float(lat), float(lon)))
-    sms.send(
-        to=to,
-        from_=from_,
-        body=forecast["timezone"] + " " + forecast["hourly"]["summary"],
-    )
+    forecast = json.loads(darksky.get_hourly_forecast(lat, lon))
+    sms.send(to=to, body=forecast["timezone"] + " " + forecast["hourly"]["summary"])
 
 
 if __name__ == "__main__":

@@ -5,6 +5,7 @@ Unit tests
 """
 
 import os
+import unittest
 
 import mock
 import requests

@@ -3,6 +3,7 @@
 """
 Unit tests for forecast.py
 """
+import unittest
 
 
 def test_main():

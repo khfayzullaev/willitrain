@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
 if [ -d "./.venv" ]; then
-    ./.venv/bin/isort --virtual-env .venv --check
-    rc=$?
-    if [[ $rc != 0 ]]
-    then
-         exit 1
-    fi
+    echo "running isort check"
+    ./.venv/bin/isort --virtual-env .venv --check --diff
+    ic=$?
 
-    ./.venv/bin/black --check .
-    rc=$?
-    if [[ $rc != 0 ]]
+    echo "running black check"
+    ./.venv/bin/black --check --diff .
+    bc=$?
+
+    echo "running mypy check"
+    ./.venv/bin/mypy .
+    mc=$?
+
+    if [[ $ic != 0 || $bc != 0 || $mc != 0 ]]
     then
-         exit 1
+        echo "one (or more) of the checks falied"
+        exit 1
     fi
 fi

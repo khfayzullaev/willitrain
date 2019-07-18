@@ -12,16 +12,17 @@ from typing import List
 import nexmo
 
 
-def send(to: str, from_: str, body: str) -> None:
+def send(to: str, body: str) -> None:
     """
     Send an SMS message
     """
     # pylint: disable-msg=C0103
     key = os.environ["NEXMO_API_KEY"]
     secret = os.environ["NEXMO_API_SECRET"]
+    nexmo_number = os.environ["NEXMO_NUMBER"]
     client = nexmo.Client(key=key, secret=secret)
     responseData = client.send_message(
-        {"to": to, "from": from_, "text": body, "type": "unicode"}
+        {"to": to, "from": nexmo_number, "text": body, "type": "unicode"}
     )
 
     if responseData["messages"][0]["status"] == "0":
@@ -36,29 +37,26 @@ def main(argv: List[str]) -> None:
     """
     # pylint: disable-msg=C0103
     to = ""
-    from_ = ""
     text = ""
     try:
-        opts, _ = getopt.getopt(argv, "h", ["to=", "from=", "text="])
+        opts, _ = getopt.getopt(argv, "h", ["to=", "text="])
     except getopt.GetoptError:
-        print("sms.py --to <phone number> --from <phone number> --text <text>")
+        print("sms.py --to <phone number> --text <text>")
         sys.exit(2)
     for opt, arg in opts:
         if opt == "-h":
-            print(" sms.py --to <phone number> --from <phone number> --text <text>")
+            print(" sms.py --to <phone number> --text <text>")
             sys.exit()
         elif opt == "--to":
             to = arg
-        elif opt == "--from":
-            from_ = arg
         elif opt == "--text":
             text = arg.strip()
 
-    if to == "" or from_ == "" or text == "":
-        print("sms.py --to <phone number> --from <phone number> --text <text>")
+    if to == "" or text == "":
+        print("sms.py --to <phone number> --text <text>")
         sys.exit(2)
 
-    send(to=to, from_=from_, body=text)
+    send(to=to, body=text)
 
 
 if __name__ == "__main__":
