@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 git stash -q --keep-index
 
+./run_format.sh
 ./run_tests.sh
 rc=$?
 
