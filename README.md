@@ -64,3 +64,7 @@ To test the code, run:
 ```bash
 $ ./run_test.sh
 ```
+
+### Why?
+
+Why not? But seriously, I always wanted to wake up and receive an SMS notification about the weather forecast for the day. I and [Feruz](https://github.com/FeruzOripov) decided to write out own little and over-engineered tool for that.
