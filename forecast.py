@@ -53,12 +53,7 @@ def main(argv: List[str]) -> None:
             alert_links += alert["uri"]
             alert_links += "\n"
 
-    sms.send(
-        to=to,
-        body=forecast["hourly"]["summary"]
-        + " "
-        + alert_links,
-    )
+    sms.send(to=to, body=forecast["hourly"]["summary"] + " " + alert_links)
 
 
 if __name__ == "__main__":
