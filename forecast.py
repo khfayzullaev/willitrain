@@ -45,7 +45,20 @@ def main(argv: List[str]) -> None:
         sys.exit(2)
 
     forecast = json.loads(darksky.get_hourly_forecast(lat, lon))
-    sms.send(to=to, body=forecast["timezone"] + " " + forecast["hourly"]["summary"])
+    alerts = forecast["alerts"] if "alerts" in forecast else ""
+    alert_links = ""
+    if alerts:
+        alert_links = "\n***Alerts***\n"
+        for alert in alerts:
+            alert_links += alert["uri"]
+            alert_links += "\n"
+
+    sms.send(
+        to=to,
+        body=forecast["hourly"]["summary"]
+        + " "
+        + alert_links,
+    )
 
 
 if __name__ == "__main__":
