@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/khfayzullaev/willitrain.svg?style=svg)](https://circleci.com/gh/khfayzullaev/willitrain)
+
 # WillItRain
 
 An over engineered tool to deliver the weather notifications and alerts to your phone.
