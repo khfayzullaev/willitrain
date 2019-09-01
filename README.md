@@ -16,6 +16,10 @@ What things you need to run the tool:
 - [Nexmo SMS API](https://developer.nexmo.com/) to send an SMS to your phone
 - [Poetry](https://github.com/sdispater/poetry) to declare, manage and install Python dependencies
 
+The tool incorporates third party components whose licenses, privacy policies, ad terms of services you can find at the following links:
+- https://darksky.net/dev/docs/terms#terms-of-service
+- https://www.nexmo.com/terms-of-use
+
 ### Installing
 
 
