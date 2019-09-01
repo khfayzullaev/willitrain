@@ -17,8 +17,8 @@ What things you need to run the tool:
 - [Poetry](https://github.com/sdispater/poetry) to declare, manage and install Python dependencies
 
 The tool incorporates third party components whose licenses, privacy policies, ad terms of services you can find at the following links:
-- https://darksky.net/dev/docs/terms#terms-of-service
-- https://www.nexmo.com/terms-of-use
+- Dark Sky: https://darksky.net/dev/docs/terms#terms-of-service
+- Nexmo: https://www.nexmo.com/terms-of-use
 
 ### Installing
 
@@ -70,6 +70,10 @@ To test the code, run:
 ```bash
 $ ./run_test.sh
 ```
+
+### Formating code
+
+We use [`black`](https://github.com/psf/black) and [`isort`](https://github.com/timothycrosley/isort) to format the code. We check the code format when you open a PR to contirubte to the project using [`run_format_check.sh`](run_format_check.sh).
 
 ### Why?
 
