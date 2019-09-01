@@ -1,49 +1,35 @@
 version: 2
-
 jobs:
+    build-and-test:
+        working_directory: ~/willitrain
 
-  # Building and testing the project
-  build-and-test:
-    # Our environment, Python 3.6.7
-    docker:
-      - image: circleci/python:3.6.7
+        docker:
+            - image: circleci/python:3.6.8
 
-    # The steps for our build-and-test
-    steps:
-      # Get the code
-      - checkout
+        steps:
+            - checkout
 
-      # Restore cache if poetry.lock checksum has not changed
-      - restore_cache:
-          keys:
-            - deps-{{ checksum "poetry.lock" }}
+            - restore_cache:
+                keys:
+                    - deps-{{ checksum "poetry.lock" }}
 
-      # Let's install the dependencies
-      - run:
-          name: Install Dependencies
-          command: |
-            poetry install
+            - run:
+                name: Install Dependencies
+                command: poetry install
 
-      # Save's the specified path as a cache. This is the path Poetry uses to install the dependencies
-      - save_cache:
-          key: deps-{{ checksum "poetry.lock" }}
-          paths:
-            - /home/circleci/.cache/pypoetry/virtualenvs
+            - save_cache:
+                key: deps-{{ checksum "poetry.lock" }}
+                paths:
+                    - /home/circleci/.cache/pypoetry/virtualenvs
+            - run:
+                name: Run Tests
+                command: |
+                    echo 'export CI="circleci"' >> $BASH_ENV
+                    ./run_format_check.sh
+                    ./run_tests.sh
 
-      # Last step, runs our tests ommiting the dependencies path (so we don't take their coverage into account)
-      # And send our coverage somewhere, in this case, coveralls
-      - run:
-          name: Run Tests
-          commands: |
-              ./run_format_check.sh
-              ./run_tests.sh
-
-
- # In the workflows section, we specify when we want to run the jobs defined
 workflows:
-  version: 2
-
-  # The build-and-test we will run EVERYTIME a piece of code changes
-  build-and-test-workflow:
-    jobs:
-      - build-and-test
+    version: 2
+    build-and-test-workflow:
+        jobs:
+            - build-and-test
