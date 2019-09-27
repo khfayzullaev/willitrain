@@ -36,7 +36,7 @@ def get_hourly_forecast(latitude: str, longitude: str) -> str:
     return json.dumps(data)
 
 
-def main(argv: List[str]) -> None:
+def main(argv: List[str]) -> str:
     """
     A main function to parse arguments and request hourly forecast
     """
@@ -60,7 +60,7 @@ def main(argv: List[str]) -> None:
         print("darksky.py --lat <latitude> --lon <longitude>")
         sys.exit(2)
 
-    print(get_hourly_forecast(latitude, longitude))
+    return get_hourly_forecast(latitude, longitude)
 
 
 if __name__ == "__main__":
