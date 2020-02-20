@@ -6,7 +6,7 @@ authors = ["Khurshid Fayzullaev <khurshidfayzullaev@yahoo.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
-requests = "^2.22"
+requests = "^2.23"
 nexmo = "^2.4"
 
 [tool.poetry.dev-dependencies]
