@@ -1,3 +1,5 @@
+**THIS PROJECT IS NO LONGER SUPPORTED**
+
 [![CircleCI](https://circleci.com/gh/khfayzullaev/willitrain.svg?style=svg)](https://circleci.com/gh/khfayzullaev/willitrain)
 
 # WillItRain
